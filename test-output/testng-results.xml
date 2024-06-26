@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-06-25T23:02:54 IST" name="Default suite" finished-at="2024-06-25T23:03:22 IST" duration-ms="27517">
+    <groups>
+    </groups>
+    <test started-at="2024-06-25T23:02:54 IST" name="Default test" finished-at="2024-06-25T23:03:22 IST" duration-ms="27517">
+      <class name="com.tests.AdminPageTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.tests.AdminPageTest@77c2494c]" started-at="2024-06-25T23:02:54 IST" name="setup" finished-at="2024-06-25T23:03:17 IST" duration-ms="22566" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="addUserTest()[pri:0, instance:com.tests.AdminPageTest@77c2494c]" started-at="2024-06-25T23:03:17 IST" name="addUserTest" finished-at="2024-06-25T23:03:22 IST" duration-ms="4909" status="FAIL">
+          <exception class="org.apache.poi.ooxml.POIXMLException">
+            <message>
+              <![CDATA[org.apache.xmlbeans.XmlException: error: Premature end of file.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.apache.poi.ooxml.POIXMLException: org.apache.xmlbeans.XmlException: error: Premature end of file.
+at org.apache.poi.xssf.usermodel.XSSFWorkbook.onDocumentRead(XSSFWorkbook.java:479)
+at org.apache.poi.ooxml.POIXMLDocument.load(POIXMLDocument.java:169)
+at org.apache.poi.xssf.usermodel.XSSFWorkbook.<init>(XSSFWorkbook.java:260)
+at org.apache.poi.xssf.usermodel.XSSFWorkbookFactory.createWorkbook(XSSFWorkbookFactory.java:118)
+at org.apache.poi.xssf.usermodel.XSSFWorkbookFactory.create(XSSFWorkbookFactory.java:98)
+at org.apache.poi.xssf.usermodel.XSSFWorkbookFactory.create(XSSFWorkbookFactory.java:36)
+at org.apache.poi.ss.usermodel.WorkbookFactory.lambda$create$2(WorkbookFactory.java:224)
+at org.apache.poi.ss.usermodel.WorkbookFactory.wp(WorkbookFactory.java:329)
+at org.apache.poi.ss.usermodel.WorkbookFactory.create(WorkbookFactory.java:224)
+at org.apache.poi.ss.usermodel.WorkbookFactory.create(WorkbookFactory.java:185)
+at com.utility.ExcelReader.getSheet(ExcelReader.java:26)
+at com.tests.AdminPageTest.getExcelSheetData(AdminPageTest.java:56)
+at com.tests.AdminPageTest.addUserTest(AdminPageTest.java:43)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.apache.xmlbeans.XmlException: error: Premature end of file.
+at org.apache.xmlbeans.impl.store.Locale$SaxLoader.load(Locale.java:2563)
+at org.apache.xmlbeans.impl.store.Locale.lambda$parseToXmlObject$3(Locale.java:718)
+at org.apache.xmlbeans.impl.store.Locale.syncWrap(Locale.java:491)
+at org.apache.xmlbeans.impl.store.Locale.parseToXmlObject(Locale.java:717)
+at org.apache.xmlbeans.impl.schema.SchemaTypeLoaderBase.parse(SchemaTypeLoaderBase.java:234)
+at org.apache.xmlbeans.impl.schema.AbstractDocumentFactory.parse(AbstractDocumentFactory.java:71)
+at org.apache.poi.xssf.usermodel.XSSFWorkbook.onDocumentRead(XSSFWorkbook.java:395)
+... 38 more
+Caused by: org.xml.sax.SAXParseException; systemId: file://; lineNumber: 1; columnNumber: 1; Premature end of file.
+at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1465)
+at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:1043)
+at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:635)
+at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:113)
+at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:551)
+at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:890)
+at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:826)
+at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:134)
+at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1225)
+at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:643)
+at org.apache.xmlbeans.impl.store.Locale$SaxLoader.load(Locale.java:2542)
+... 44 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.apache.poi.ooxml.POIXMLException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addUserTest -->
+      </class> <!-- com.tests.AdminPageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
