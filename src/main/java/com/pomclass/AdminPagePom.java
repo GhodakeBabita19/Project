@@ -44,13 +44,21 @@ public class AdminPagePom extends BaseClass {
 
 	@FindBy(xpath = "(//div[contains(text(),'-- Select --')])[1]")
 	private WebElement adduserrole;
+	
+	@FindBy(css = "div[role='option'] span")
+	private List<WebElement> roleSelect;
+	
 
 	@FindBy(xpath = "//div[contains(@class,'oxd-autocomplete-text-input')]//input")
 	private WebElement addemployeename;
 
-	@FindBy(xpath = "(//div[contains(text(),'-- Select --')])[2]")
+	@FindBy(xpath = "(//div[@class='oxd-select-text-input'])[2]")
 	private WebElement addstatus;
 
+	
+	@FindBy(css = "div[class ='oxd-select-option'] span")
+	private List<WebElement> statusSelect;
+	
 	@FindBy(xpath = "(//input[@class='oxd-input oxd-input--active'])[2]")
 	private WebElement addusername;
 
@@ -66,8 +74,8 @@ public class AdminPagePom extends BaseClass {
 	@FindBy(xpath = "//button[text()=' Save ']")
 	private WebElement addsavebutton;
 
-	@FindBy(css = "div[role='option'] span")
-	private List<WebElement> roleSelect;
+	
+	
 
 	public void gotoAdminPage() {
 		Utility.webElementClick(adminPageLink);
@@ -95,15 +103,15 @@ public class AdminPagePom extends BaseClass {
 		Utility.setText(addemployeename,empName );
 		
 	}
-	 public void setUserStatus(String userStatus){
+	
+		 public void setUserStatus(String userStatus){
 	        Utility.getActionClass().clickAndHold(addstatus)
-	                .pause(Duration.ofSeconds(1))
-	                .build()
-	                .perform();
+	        .pause(Duration.ofSeconds(1)).build().perform();
 
-	        for ( WebElement selectStatus : roleSelect){
+	        for ( WebElement selectStatus : statusSelect){
 	            if (selectStatus.getText().equalsIgnoreCase(userStatus)){
 	                Utility.webElementClick(selectStatus);
+	                break;
 	            }
 	        }
 	    }
@@ -111,5 +119,7 @@ public class AdminPagePom extends BaseClass {
 	        Utility.setText(addusername,username);
 	        Utility.setText(addpassword,pass);
 	        Utility.setText(addconfirmpassword,confPass);
+	        Utility.webElementClick(addsavebutton);
 	    }
+	 
 }

@@ -15,9 +15,10 @@ import com.base.BaseClass;
 public class ExcelReader extends BaseClass {
 	
 	public static FileInputStream excelSheetRead(String excelName) throws FileNotFoundException {
-		System.out.println(projectpath+"/src/test/resources/"+excelName);
+		System.out.println(projectpath+"/src/test/resources/data/"+excelName);
 		
-		FileInputStream file = new FileInputStream(projectpath+"/src/test/resources/"+excelName);
+		
+		FileInputStream file = new FileInputStream(projectpath+"/src/test/resources/data/userData/"+excelName);
 		return file;
 	}
 	

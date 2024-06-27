@@ -8,6 +8,7 @@ import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.base.BaseClass;
@@ -16,7 +17,7 @@ import com.pomclass.LoginPagePom;
 import com.utility.ExcelReader;
 
 
-
+@Listeners(MyListeners.class)
 public class AdminPageTest extends BaseClass {
 
 	@BeforeClass
@@ -36,6 +37,7 @@ public class AdminPageTest extends BaseClass {
         LoginPagePom loginPagePom = new LoginPagePom();
         Assert.assertEquals(loginPagePom.getUsername(),"Admin");
         Assert.assertEquals(loginPagePom.getPassword(),"admin123");
+        
         AdminPagePom adminPagePom = loginPagePom.login(loginPagePom.getUsername(), loginPagePom.getPassword());
         adminPagePom.gotoAdminPage();
         adminPagePom.addUser();
@@ -43,9 +45,12 @@ public class AdminPageTest extends BaseClass {
     Map<String,Object> userData =   getExcelSheetData();
     System.out.println(userData.get("User Role").toString());
         adminPagePom.selectUserRole(userData.get("User Role").toString());
+        
         adminPagePom.setEmployeeName(userData.get("Employee Name").toString());
-        adminPagePom.setUserStatus(userData.get("Status").toString());
+      
         System.out.println(userData.get("Status").toString());
+        adminPagePom.setUserStatus(userData.get("Status").toString());
+        
         adminPagePom.setUserDetails(userData.get("User Name").toString(),
                 userData.get("Password").toString(),userData.get("Confirm Password").toString());
 

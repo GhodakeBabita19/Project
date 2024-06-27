@@ -1,14 +1,18 @@
 package com.tests;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.base.BaseClass;
 import com.pomclass.LoginPagePom;
+import com.utility.Utility;
 
-
+@Listeners(MyListeners.class)
 public class LoginPageTest extends BaseClass {
 	
 	@BeforeClass
@@ -17,7 +21,7 @@ public class LoginPageTest extends BaseClass {
 		launchWeb();
 	}
 
-	@AfterClass
+	
 	public void teardown() {
 	}
 
@@ -51,14 +55,14 @@ public class LoginPageTest extends BaseClass {
 	}
 
 	@Test
-	public void resetPasswordTest() {
+	public void resetPasswordTest() throws IOException {
 		LoginPagePom loginPagePom = new LoginPagePom();
 		Assert.assertEquals(loginPagePom.getUsername(), "Admin");
 		loginPagePom.forgotPasswordFun("Admin");
 		
 		
        Assert.assertEquals(loginPagePom.getResetMessage(), "Reset Password link sent successfully");
-
+      // Utility.getScreenShot("LoginPageTest");
 	}
 
 }
