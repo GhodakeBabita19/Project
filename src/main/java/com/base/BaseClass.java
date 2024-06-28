@@ -14,12 +14,9 @@ public static  WebDriver driver;
 	public static void launchWeb() {
 		
 		driver = new ChromeDriver();
-		
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		
-		driver.manage().window().maximize();
-		
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+	    driver.manage().window().maximize();
+	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 		
 		
 	}
