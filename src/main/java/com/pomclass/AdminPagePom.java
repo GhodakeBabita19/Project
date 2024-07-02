@@ -44,10 +44,9 @@ public class AdminPagePom extends BaseClass {
 
 	@FindBy(xpath = "(//div[contains(text(),'-- Select --')])[1]")
 	private WebElement adduserrole;
-	
+
 	@FindBy(css = "div[role='option'] span")
 	private List<WebElement> roleSelect;
-	
 
 	@FindBy(xpath = "//div[contains(@class,'oxd-autocomplete-text-input')]//input")
 	private WebElement addemployeename;
@@ -55,10 +54,9 @@ public class AdminPagePom extends BaseClass {
 	@FindBy(xpath = "(//div[@class='oxd-select-text-input'])[2]")
 	private WebElement addstatus;
 
-	
 	@FindBy(css = "div[class ='oxd-select-option'] span")
 	private List<WebElement> statusSelect;
-	
+
 	@FindBy(xpath = "(//input[@class='oxd-input oxd-input--active'])[2]")
 	private WebElement addusername;
 
@@ -73,9 +71,6 @@ public class AdminPagePom extends BaseClass {
 
 	@FindBy(xpath = "//button[text()=' Save ']")
 	private WebElement addsavebutton;
-
-	
-	
 
 	public void gotoAdminPage() {
 		Utility.webElementClick(adminPageLink);
@@ -113,13 +108,25 @@ public class AdminPagePom extends BaseClass {
 	                Utility.webElementClick(selectStatus);
 	                break;
 	            }
+	
 	        }
-	    }
-	 public void setUserDetails(String username, String pass, String confPass){
-	        Utility.setText(addusername,username);
-	        Utility.setText(addpassword,pass);
-	        Utility.setText(addconfirmpassword,confPass);
-	        Utility.webElementClick(addsavebutton);
-	    }
-	 
+		 }
+
+	
+	public void setUserDetails(String username, String pass, String confPass) {
+		//Utility.applyExplicitWait(statusselect);
+		Utility.applyExplicitWait(addusername);
+		Utility.setText(addusername, username);
+		Utility.setText(addpassword, pass);
+		Utility.setText(addconfirmpassword, confPass);
+		Utility.webElementClick(addsavebutton);
+	}
+
+	public void cancelUserDetails(String username, String pass, String confPass) {
+		Utility.setText(addusername, username);
+		Utility.setText(addpassword, pass);
+		Utility.setText(addconfirmpassword, confPass);
+		Utility.webElementClick(addcancelbutton);
+	}
+
 }
